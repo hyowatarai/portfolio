@@ -16,3 +16,35 @@
 .hero h1 .title-word.fv-letter-motion{position:relative;animation:none}.fv-original{visibility:hidden}.hero .fv-char{position:absolute;top:0;display:block;white-space:pre;transform-origin:50% 100%;backface-visibility:hidden;animation:fv-character 1.15s var(--char-delay) cubic-bezier(.16,1,.3,1) both}.hero .eyebrow{animation:fv-metadata .8s .1s both}.hero-bottom{animation:fv-metadata .95s .6s cubic-bezier(.16,1,.3,1) both}.hero .career-snapshot{animation:fv-metadata .95s .75s cubic-bezier(.16,1,.3,1) both}.hero .film-item{animation:fv-frame 1.35s cubic-bezier(.16,1,.3,1) both;transform-origin:50% 100%}.hero .film-item:nth-child(1){animation-delay:.65s}.hero .film-item:nth-child(2){animation-delay:.78s}.hero .film-item:nth-child(3){animation-delay:.91s}.hero .film-item img{animation:fv-image 1.8s cubic-bezier(.16,1,.3,1) both}.hero .film-item:nth-child(1) img{animation-delay:.65s}.hero .film-item:nth-child(2) img{animation-delay:.78s}.hero .film-item:nth-child(3) img{animation-delay:.91s}.hero .asterisk{animation:fv-star-intro 1.5s .15s cubic-bezier(.16,1,.3,1) both,star-turn 28s 1.65s linear infinite}.hero .round{animation:fv-metadata .9s .85s both}.hero .hero-line{animation:fv-metadata .9s 1s both}@keyframes fv-character{0%{opacity:0;transform:translate3d(0,105%,0) rotateX(-70deg) rotateZ(4deg);filter:blur(5px)}60%{opacity:1;filter:blur(0)}100%{opacity:1;transform:none;filter:blur(0)}}@keyframes fv-metadata{from{opacity:0;transform:translateY(12px);filter:blur(3px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes fv-frame{from{opacity:0;clip-path:inset(100% 0 0 0);transform:translateY(22px)}to{opacity:1;clip-path:inset(0);transform:none}}@keyframes fv-image{from{scale:1.09}to{scale:1}}@keyframes fv-star-intro{from{opacity:0;transform:rotate(-120deg) scale(.35)}to{opacity:1;transform:rotate(0) scale(1)}}@media(prefers-reduced-motion:reduce){.hero .fv-char,.hero .film-item img,.hero .hero-line{animation:none!important}.hero .fv-char{display:none}.hero .fv-original{visibility:visible}}
 /* Detailed title sequence only; work-image animations stay unchanged. */
 .hero h1{isolation:isolate}.hero .fv-char{animation:fv-character-cinematic 1.65s calc(var(--char-delay) + .22s) cubic-bezier(.16,1,.3,1) both;will-change:transform,filter,opacity}.hero .fv-letter-motion:before{content:attr(aria-label);position:absolute;inset:0;white-space:pre;pointer-events:none;color:transparent;-webkit-text-stroke:1px #d6ff63;opacity:0;animation:fv-ghost 2s .05s cubic-bezier(.2,.7,.2,1) both;z-index:-1}.hero .fv-letter-motion:after{content:attr(aria-label);position:absolute;inset:0;white-space:pre;pointer-events:none;color:transparent;-webkit-text-stroke:1px #d6ff63;clip-path:inset(0 100% 0 0);animation:fv-title-scan 1.5s 1.45s cubic-bezier(.4,0,.2,1) both;filter:drop-shadow(0 0 7px #d6ff6366);z-index:2}.hero .title-line:nth-child(2) .fv-letter-motion:before{animation-delay:.17s}.hero .title-line:nth-child(2) .fv-letter-motion:after{animation-delay:1.6s}.hero .asterisk{animation:fv-star-assemble 2.1s .08s cubic-bezier(.16,1,.3,1) both,star-turn 28s 2.18s linear infinite}.hero .eyebrow .dot{animation:fv-signal 1.7s .1s both}@keyframes fv-character-cinematic{0%{opacity:0;transform:translate3d(0,95%,0) rotateX(-85deg) rotateZ(7deg) scale(.82);filter:blur(9px)}38%{opacity:.7;filter:blur(2px)}72%{opacity:1;transform:translate3d(0,-2%,0) rotateX(0) rotateZ(0) scale(1);filter:blur(0)}100%{opacity:1;transform:none;filter:blur(0)}}@keyframes fv-ghost{0%{opacity:0;clip-path:inset(0 100% 0 0);transform:translateY(9px)}25%{opacity:.45;clip-path:inset(0 0 0 0);transform:none}65%{opacity:.18}100%{opacity:0;clip-path:inset(0);transform:none}}@keyframes fv-title-scan{0%{clip-path:polygon(-25% 0,-10% 0,-30% 100%,-45% 100%);opacity:0}15%{opacity:1}80%{opacity:.8}100%{clip-path:polygon(145% 0,160% 0,140% 100%,125% 100%);opacity:0}}@keyframes fv-star-assemble{0%{opacity:0;transform:rotate(-190deg) scale(.08);filter:blur(8px)}45%{opacity:1;transform:rotate(14deg) scale(1.06);filter:blur(0)}72%{transform:rotate(-5deg) scale(.98)}100%{opacity:1;transform:rotate(0) scale(1);filter:blur(0)}}@keyframes fv-signal{0%,30%{opacity:.2;box-shadow:0 0 0 0 #d6ff6300}40%{opacity:1;box-shadow:0 0 0 8px #d6ff6322}75%{box-shadow:0 0 0 18px #d6ff6300}100%{opacity:1;box-shadow:none}}@media(prefers-reduced-motion:reduce){.hero .fv-char,.hero .fv-letter-motion:before,.hero .fv-letter-motion:after,.hero .eyebrow .dot{animation:none!important;will-change:auto}.hero .fv-letter-motion:before,.hero .fv-letter-motion:after{display:none}}
+
+/* Small screens use the original typography so font loading and rotation cannot
+   leave measured character overlays clipped or misaligned. */
+@media(max-width:700px){
+ .hero h1 .title-line{overflow:visible}
+ .hero .fv-original{visibility:visible}
+ .hero .fv-char,.hero .fv-letter-motion:before,.hero .fv-letter-motion:after{display:none}
+ .hero h1 .title-word{white-space:nowrap;animation:fv-metadata 1.1s .1s cubic-bezier(.16,1,.3,1) both!important}
+ .hero h1 .title-line:nth-child(2) .title-word{animation-delay:.25s!important}
+ .hero-bottom{gap:12px}
+ .hero-bottom>p:first-child{min-width:0;font-size:clamp(14px,4.5vw,18px)}
+ .hero .round{flex:0 0 47px}
+ .heading-row{gap:16px}
+ .heading-row h2{line-height:1.1}
+ .count{flex-shrink:0}
+ .archive h2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:clamp(40px,11.8vw,58px);line-height:1.15}
+ .archive h2>span{float:none;flex-shrink:0}
+ .section-top{gap:14px}
+ .section-top p{max-width:65%;text-align:right;line-height:1.7}
+ .tools ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tools li{min-width:0;gap:8px}
+ .tools strong{min-width:0;overflow-wrap:anywhere;line-height:1.6}
+ .project-row{grid-template-columns:25px minmax(0,1fr) 24px}
+ .row-name{min-width:0;overflow-wrap:anywhere;line-height:1.6}
+ .row-arrow{font-size:20px;text-align:right}
+ dialog{max-height:90vh;max-height:90dvh}
+ dialog h2{overflow-wrap:anywhere}
+ .project-facts>div{grid-template-columns:70px minmax(0,1fr);gap:10px}
+ .project-facts dd{min-width:0;overflow-wrap:anywhere;line-height:1.7}
+}
+@media(max-width:360px){nav{gap:18px}.hero .round{width:42px;height:42px;flex-basis:42px}}
+@media(prefers-reduced-motion:reduce){.hero h1 .title-word{animation:none!important}}
