@@ -43,7 +43,7 @@
  .row-arrow{font-size:20px;text-align:right}
  dialog{max-height:90vh;max-height:90dvh}
  dialog h2{overflow-wrap:anywhere}
- .project-facts>div{grid-template-columns:70px minmax(0,1fr);gap:10px}
+ .project-facts>div{grid-template-columns:80px minmax(0,1fr);gap:10px}
  .project-facts dd{min-width:0;overflow-wrap:anywhere;line-height:1.7}
 }
 @media(max-width:360px){nav{gap:18px}.hero .round{width:42px;height:42px;flex-basis:42px}}
