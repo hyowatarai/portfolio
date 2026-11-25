@@ -48,3 +48,5 @@
 }
 @media(max-width:360px){nav{gap:18px}.hero .round{width:42px;height:42px;flex-basis:42px}}
 @media(prefers-reduced-motion:reduce){.hero h1 .title-word{animation:none!important}}
+
+.project .work-role{line-height:1.9}
